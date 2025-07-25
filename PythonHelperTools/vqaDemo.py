@@ -24,7 +24,7 @@ All possible quesTypes for abstract and mscoco has been provided in respective t
 """
 annIds = vqa.getQuesIds(quesTypes='how many');   
 anns = vqa.loadQA(annIds)
-randomAnn = random.choice(anns)
+randomAnn = random.choice(anns) # annotationを1つランダムに取得
 vqa.showQA([randomAnn])
 imgId = randomAnn['image_id']
 imgFilename = 'COCO_' + dataSubType + '_'+ str(imgId).zfill(12) + '.jpg'
@@ -58,7 +58,7 @@ if os.path.isfile(imgDir + imgFilename):
 Usage: vqa.getImgIds(quesIds=[], quesTypes=[], ansTypes=[])
 Above method can be used to retrieve imageIds for given question Ids or given question types or given answer types.
 """
-ids = vqa.getImgIds()
+ids = vqa.getImgIds() # filterなし = annotation fileに含まれているimg_idをすべて取得
 annIds = vqa.getQuesIds(imgIds=random.sample(ids,5));  
 anns = vqa.loadQA(annIds)
 randomAnn = random.choice(anns)
